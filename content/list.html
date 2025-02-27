@@ -143,7 +143,81 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">Tasks << <a href='Tasks.html'>Previous</a> <a href='tasks1.html'>Next</a> >> tasks1<br /><h1>list</h1>
-<br />Tasks << <a href='Tasks.html'>Previous</a> <a href='tasks1.html'>Next</a> >> tasks1</div>
+<p><span>這是初版不是初版不夠完善但能夠初步完成功能。(<a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/2793a8a65bd810e9837e0d00ca3e2105d3d5da9c/list_stage_2.py">執行結果</a>):<br/></span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document
+import urllib.request
+ 
+# 設定 URL
+url = "https://mde.tw/list/2b.txt"
+ 
+# 讀取網站內容
+response = urllib.request.urlopen(url)
+data = response.read().splitlines()  # 直接讀取並按行分割
+ 
+# 確保資料存在
+if len(data) &gt; 1:
+    all_stud = data[1:]  # 跳過標題列
+    print("總共有 " + str(len(all_stud)) + " 名學員")
+else:
+    all_stud = []
+    print("學員名單讀取失敗")
+ 
+# 找到網頁中的特定位置
+brython_div1 = document["brython_div1"]
+ 
+# **動態插入所有學員資料，並為帳號添加超連結**
+for index, student in enumerate(all_stud, start=1):
+    parts = student.split()  # 用空格分割學號和帳號
+    if len(parts) == 2:
+        student_id, account = parts
+        # 設定超連結
+        account_link = f"https://mdecd2025.github.io/hw-{account.strip()}"
+        # 插入學號和帳號的超連結
+        brython_div1 &lt;= f"{index}. {student_id.strip()} - " + html.A(account.strip(), href=account_link)
+        brython_div1 &lt;= html.BR()  # 換行
+    else:
+        print(f"格式錯誤，跳過此行: {student}")
+ 
+# 測試固定超連結
+brython_div1 &lt;= html.BR()
+brython_div1 &lt;= "附加連結: " + html.A("github.com", href="https://github.com")</pre>
+<p><span><br/></span>1.完成版:這版具有完整功能，並且能夠顯示2b組員的倉儲和網站。(執行結果)</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 從 Brython 程式庫中的 browser 導入 html, document, ajax
+from browser import html, document, ajax
+
+# 定義處理學員資料的函式
+def process_data(req):
+    if req.status == 200:  # 確保請求成功
+        data = req.text.splitlines()  # 讀取並拆成每一行
+        all_stud = data[1:]  # 跳過標題列
+        brython_div1 = document["brython_div1"]  # 取得對應的網頁區塊
+
+        # 清空原有內容
+        brython_div1.clear()
+
+        for line in all_stud:
+            fields = line.split("\t")  # 以 Tab 分隔學號與 GitHub 帳號
+            if len(fields) &lt; 2 or not fields[1].strip():  # 若帳號欄位為空，則跳過
+                continue
+            
+            stud_num = fields[0].strip()  # 學號
+            github_account = fields[1].strip()  # GitHub 帳號
+            scrum_url = f"https://mdecd2025.github.io/hw-{github_account}"  # Scrum 連結
+            github_url = f"https://github.com/mdecd2025/hw-{github_account}"  # GitHub 連結
+
+            # 插入學號與 GitHub 連結
+            brython_div1 &lt;= html.P(
+                [
+                    html.A(stud_num, href=scrum_url, target="_blank", style={"margin-right": "10px"}),  # 學號連結
+                    " | ",
+                    html.A(github_account, href=github_url, target="_blank")  # GitHub 帳號作為超連結
+                ]
+            )
+
+# 使用 AJAX 非同步讀取 2b.txt
+ajax.get("https://mde.tw/list/2b.txt", oncomplete=process_data)
+</pre>
+<p><br/><br/><br/></p><br />Tasks << <a href='Tasks.html'>Previous</a> <a href='tasks1.html'>Next</a> >> tasks1</div>
         
     <!-- footer -->
       <div class="container">
