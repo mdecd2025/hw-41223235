@@ -100,8 +100,50 @@ def process_data(req):
 # 使用 AJAX 非同步讀取 2b.txt
 ajax.get("https://mde.tw/list/2b.txt", oncomplete=process_data)
 </pre>
-<p><br/><br/></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/zp6mpCmAIVI" title="" width="400"></iframe></p><h2>tasks1</h2>
+<p><span>2.完成版:這版具有完成版(1)並增加了顏色。(</span><a href="https://mdecd2025.github.io/hw-41223235/content/Brython.html?src=https://gist.githubusercontent.com/41223235/0b9470f0123c866ddabe6acc78ea25ad/raw/c40c9d4b41fdc59a8243b24123aa443566f01dd4/gistfile1.txt">執行結果</a><span>)</span></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/zp6mpCmAIVI" title="" width="400"></iframe><br/><br/></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document, ajax
+
+# 定義處理學員資料的函式
+def process_data(req):
+    if req.status == 200:  # 確保請求成功
+        data = req.text.splitlines()  # 讀取並拆成每一行
+        all_stud = data[1:]  # 跳過標題列
+        brython_div1 = document["brython_div1"]  # 取得對應的網頁區塊
+
+        # 清空原有內容
+        brython_div1.clear()
+
+        # 檢查是否有學員資料
+        if not all_stud:
+            brython_div1 &lt;= html.P("學員資料未找到，請稍後再試。")
+            return
+
+        for line in all_stud:
+            fields = line.split("\t")  # 以 Tab 分隔學號與 GitHub 帳號
+            if len(fields) &lt; 2 or not fields[1].strip():  # 若帳號欄位為空，則跳過
+                continue
+             
+            stud_num = fields[0].strip()  # 學號
+            github_account = fields[1].strip()  # GitHub 帳號
+            scrum_url = f"https://mdecd2025.github.io/hw-{github_account}"  # Scrum 連結
+            github_url = f"https://github.com/mdecd2025/hw-{github_account}"  # GitHub 連結
+
+            # 插入學號與 GitHub 連結
+            brython_div1 &lt;= html.P(
+                [
+                    html.A(stud_num, href=scrum_url, target="_blank", style={"margin-right": "10px", "color": "blue", "text-decoration": "none"}),  # 學號連結
+                    " | ",
+                    html.A(github_account, href=github_url, target="_blank", style={"color": "green", "text-decoration": "none"})  # GitHub 帳號作為超連結
+                ]
+            )
+    else:
+        brython_div1 &lt;= html.P("資料加載失敗，請稍後再試。")
+
+# 使用 AJAX 非同步讀取 2b.txt
+ajax.get("https://mde.tw/list/2b.txt", oncomplete=process_data)
+</pre>
+<p><br/><br/></p><h2>tasks1</h2>
 <h4><span style="background-color: #ccffff;">Portable </span><em>自行製作可攜程式系統</em></h4>
 <p>目前最新的 Python 版本為 3.13.2, 利用舊版的 Python310,來建立 Python313可攜程式 </p>
 <p>(為了配合 Siemens NX2312)</p>
