@@ -26,7 +26,7 @@
 <h4></h4>
 <p></p>
 <h2>list</h2>
-<p><span>這是初版不是初版不夠完善但能夠初步完成功能。(<a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/2793a8a65bd810e9837e0d00ca3e2105d3d5da9c/list_stage_2.py">執行結果</a>):<br/></span></p>
+<p><span><strong>1.0這是初始版可執行但功能不多。(<a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/2793a8a65bd810e9837e0d00ca3e2105d3d5da9c/list_stage_2.py">執行結果</a>)</strong><br/></span></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document
 import urllib.request
  
@@ -64,7 +64,7 @@ for index, student in enumerate(all_stud, start=1):
 # 測試固定超連結
 brython_div1 &lt;= html.BR()
 brython_div1 &lt;= "附加連結: " + html.A("github.com", href="https://github.com")</pre>
-<p><span><br/></span>1.完成版:這版具有完整功能，並且能夠顯示2b組員的倉儲和網站。(<a href="https://mdecd2025.github.io/hw-41223235/content/Brython.html?src=https://gist.githubusercontent.com/41223235/433dd94f87744c5baf66651dc31b9f79/raw/ab16b653c511fbb3b1d0d086f23acd8494b87843/1">執行結果</a>)</p>
+<p><span><br/></span><strong>2.0完成版:這版具有完整功能，並且能夠顯示2b組員的倉儲和網站。(<a href="https://mdecd2025.github.io/hw-41223235/content/Brython.html?src=https://gist.githubusercontent.com/41223235/433dd94f87744c5baf66651dc31b9f79/raw/ab16b653c511fbb3b1d0d086f23acd8494b87843/1">執行結果</a>)</strong></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 從 Brython 程式庫中的 browser 導入 html, document, ajax
 from browser import html, document, ajax
 
@@ -101,7 +101,7 @@ def process_data(req):
 ajax.get("https://mde.tw/list/2b.txt", oncomplete=process_data)
 </pre>
 <p></p>
-<p><span>2.完成版:這版具有完成版(1)並增加了顏色。(</span><a href="https://mdecd2025.github.io/hw-41223235/content/Brython.html?src=https://gist.githubusercontent.com/41223235/0b9470f0123c866ddabe6acc78ea25ad/raw/c40c9d4b41fdc59a8243b24123aa443566f01dd4/gistfile1.txt">執行結果</a><span>)</span></p>
+<p><strong>2.1完成版:這版具有完整功能多增加了顏色。(<a href="https://mdecd2025.github.io/hw-41223235/content/Brython.html?src=https://gist.githubusercontent.com/41223235/0b9470f0123c866ddabe6acc78ea25ad/raw/c40c9d4b41fdc59a8243b24123aa443566f01dd4/gistfile1.txt">執行結果</a>)</strong></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document, ajax
 
 # 定義處理學員資料的函式
