@@ -261,7 +261,57 @@ def process_data(req):
 ajax.get("https://mde.tw/list/2b.txt", oncomplete=process_data)
 </pre>
 <p></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/zp6mpCmAIVI" title="" width="400"></iframe><br/><strong>1.0小組完成版:列出2b-g3六人倉儲和作業 (執行結果) <br/></strong></p><br />Tasks << <a href='Tasks.html'>Previous</a> <a href='tasks1.html'>Next</a> >> tasks1</div>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/zp6mpCmAIVI" title="" width="400"></iframe><br/><strong>1.0小組完成版:列出2b-g3六人倉儲和作業 (執行結果) <br/></strong></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document, ajax
+
+# 指定要顯示的學員列表
+selected_students = {"41223235", "RAY41223215", "hyy41223228", "41223227", "41223206", "41223226-0", "41223226", "41223228", "41223215"}
+
+# 定義處理學員資料的函式
+def process_data(req):
+    if req.status == 200:  # 確保請求成功
+        data = req.text.splitlines()  # 讀取並拆成每一行
+        all_stud = data[1:]  # 跳過標題列
+        brython_div1 = document["brython_div1"]  # 取得對應的網頁區塊
+
+        # 清空原有內容
+        brython_div1.clear()
+
+        # 檢查是否有學員資料
+        if not all_stud:
+            brython_div1 &lt;= html.P("學員資料未找到，請稍後再試。")
+            return
+
+        for line in all_stud:
+            fields = line.split("\t")  # 以 Tab 分隔學號與 GitHub 帳號
+            if len(fields) &lt; 2 or not fields[1].strip():  # 若帳號欄位為空，則跳過
+                continue
+              
+            stud_num = fields[0].strip()  # 學號
+            github_account = fields[1].strip()  # GitHub 帳號
+            
+            # 只處理選定的學員
+            if stud_num not in selected_students:
+                continue
+            
+            scrum_url = f"https://mdecd2025.github.io/hw-{github_account}"  # 作業網站
+            github_url = f"https://github.com/mdecd2025/hw-{github_account}"  # 作業倉儲
+
+            # 插入學號與 GitHub 連結
+            brython_div1 &lt;= html.P(
+                [
+                    html.A(stud_num, href=scrum_url, target="_blank", style={"margin-right": "10px", "color": "blue", "text-decoration": "none"}),  # 作業網站連結
+                    " | ",
+                    html.A(github_account, href=github_url, target="_blank", style={"color": "green", "text-decoration": "none"})  # 作業倉儲連結
+                ]
+            )
+    else:
+        brython_div1 &lt;= html.P("資料加載失敗，請稍後再試。")
+
+# 使用 AJAX 非同步讀取 2b.txt
+ajax.get("https://mde.tw/list/2b.txt", oncomplete=process_data)
+</pre>
+<p><strong><br/><br/><br/></strong></p><br />Tasks << <a href='Tasks.html'>Previous</a> <a href='tasks1.html'>Next</a> >> tasks1</div>
         
     <!-- footer -->
       <div class="container">
