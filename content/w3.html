@@ -2,7 +2,7 @@
         <head>
         <title>cd_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -142,10 +142,66 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Exam << <a href='Exam.html'>Previous</a> <a href='Exam2.html'>Next</a> >> Exam2<br /><h1>Exam1</h1>
-<p>Exam1 (10%): 建立 Webots 基本物件模擬場景</p>
-<p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam1 - 學員學號</p>
-<br />Exam << <a href='Exam.html'>Previous</a> <a href='Exam2.html'>Next</a> >> Exam2</div>
+    <div id="tipue_search_content">tasks2 << <a href='tasks2.html'>Previous</a> <a href='tasks3.html'>Next</a> >> tasks3<br /><h1>w3</h1>
+<p><span>目前尚未納入分組的學員名單.<br/></span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document
+import urllib.request
+ 
+# 設定 URL
+url = "https://mde.tw/list/2b.txt"
+ 
+# 讀取網站內容
+response = urllib.request.urlopen(url)
+data = response.read().splitlines()  # 直接讀取並按行分割
+ 
+# 確保資料存在
+if len(data) &gt; 1:
+    all_stud = data[1:]  # 跳過標題列
+    print("總共有 " + str(len(all_stud)) + " 名學員")
+else:
+    all_stud = []
+    print("學員名單讀取失敗")
+ 
+# 已分組的帳號名單
+grouped_accounts = {
+    '41223251', '41223211', '41223245', '41223243', 'jjjay41223212', 'leeshaowei0716', 
+    '41223234', '41223209', '41223205', '41223201', '41223202', '41223208-hw', '41223216', 
+    '41223217', '41223248', 'emma0312', '41223242', '41223203', '41223144', '41223235', 
+    'RAY41223215', 'hyy41223228', '41223227', '41223206', '41223226-0', 'Cloud41223237', 
+    'Yujenchuang', '41223225', 'ljg41223220', 'supowen', 'jacky93111', '41223246', 'Liu41223244', 
+    '41223236', '41223219', '41271237', '41223249', '41223229', '41223224', '41223222', 
+    '41223231', 'linryan23', '41023114', '41223230', 'timluo123', 'CYC41223247', '41223218', 
+    'ych0227', '41023215', '41023216', '41023213', '41071203', '41071204', '41071202', 
+    'c-ching', 'YUN4', 'tseYU000', 'snowfall-killer', 'junpig10'
+}
+ 
+# 找到網頁中的特定位置
+brython_div1 = document["brython_div1"]
+ 
+# **動態插入未分組的學號與超連結**
+index = 1
+for student in all_stud:
+    parts = student.strip().split()  # 用空格分割
+    if len(parts) == 0:
+        continue  # 跳過空行
+     
+    student_id = parts[0]  # 學號
+    account = parts[1] if len(parts) &gt; 1 else student_id  # 若帳號空白則用學號當帳號
+ 
+    if account not in grouped_accounts:  # 只處理未分組帳號
+        # 設定學號的超連結
+        student_link = f"https://mdecd2025.github.io/hw-{account}"
+        # 設定repo的超連結
+        repo_link = f"https://github.com/mdecd2025/hw-{account}"
+         
+        # 插入學號作為超連結，並添加 repo 連結
+        brython_div1 &lt;= f"{index}. " + html.A(student_id, href=student_link) + " "
+        brython_div1 &lt;= f"（" + html.A("repo", href=repo_link) + "）"
+        brython_div1 &lt;= html.BR()  # 換行
+        index += 1</pre>
+<p><span><br/><br/></span></p>
+<p><span></span></p>
+<p></p><br />tasks2 << <a href='tasks2.html'>Previous</a> <a href='tasks3.html'>Next</a> >> tasks3</div>
         
     <!-- footer -->
       <div class="container">
