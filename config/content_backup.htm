@@ -207,55 +207,7 @@ ajax.get("https://mde.tw/list/2b.txt", oncomplete=process_data)
 <h4><span style="background-color: #ccffff;">Portable </span><em>自行製作可攜程式系統</em></h4>
 <p>目前最新的 Python 版本為 3.13.2, 利用舊版的 Python310,來建立 Python313可攜程式 </p>
 <p>(為了配合 Siemens NX2312)</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/FL9ChZgcjSk" title="" width="400"></iframe><br/><br/><img alt="" height="225" src="/images/螢幕擷取畫面 2025-02-27 171853.png" width="400"/></p>
-<p><br/><br/><br/>IPv6</p>
-<p></p>
-<p>任務一 <a href="https://mdecd2025.github.io/hw-41223235/content/Brython.html?src=https://gist.githubusercontent.com/41223235/38df1b595d864c981b4e11c0486e1495/raw/5bee0b5b8c32f182891f81ac8671db1eab290936/gistfile1.txt">執行結果</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
-
-# 取得目標 div
-div = document["brython_div1"]
-
-# 基本 IPv6 前綴（數字部分動態變化）
-base_ip = "2001:288:6004:17:fff1:cd25:0000:b"
-port = "8000"
-
-# 學員編號清單（含序號）
-student_ids = [
-    "40923137", "41023114", "41023205", "41023206", "41023210", "41023213", "41023215", "41023216",
-    "41023218", "41023232", "41023237", "41071202", "41071203", "41071204", "41223201", "41223202",
-    "41223203", "41223205", "41223206", "41223207", "41223208", "41223209", "41223210", "41223211",
-    "41223212", "41223214", "41223215", "41223216", "41223217", "41223218", "41223219", "41223220",
-    "41223221", "41223222", "41223223", "41223224", "41223225", "41223226", "41223227", "41223228",
-    "41223229", "41223230", "41223231", "41223232", "41223233", "41223234", "41223235", "41223236",
-    "41223237", "41223239", "41223240", "41223242", "41223243", "41223244", "41223245", "41223246",
-    "41223247", "41223248", "41223249", "41223250", "41223251", "41223252", "41223253", "41271217",
-    "41271236", "41271237"
-]
-
-# 建立清單容器
-ul = html.UL()
-
-# 產生連結
-for i, student_id in enumerate(student_ids, start=1):
-    ipv6_suffix = f"{i:03d}"  # 轉換為三位數，例如 001, 002, ..., 066
-    full_ip = f"{base_ip}{ipv6_suffix}"  # 拼接完整 IPv6 地址
-    url = f"http://[{full_ip}]:{port}"
-    
-    # 建立超連結（格式：1 . 40923137）
-    link_text = f"{i} . {student_id}"
-    link = html.A(link_text, href=url, target="_blank")
-    
-    # 放入清單項目
-    ul &lt;= html.LI(link)
-
-# 將清單加入 div
-div &lt;= ul
-</pre>
-<p></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/J9cDAyoyRTI" title="" width="400"></iframe></p>
-<p></p>
-<h3>IPv6</h3>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/FL9ChZgcjSk" title="" width="400"></iframe><br/><br/><img alt="" height="225" src="/images/螢幕擷取畫面 2025-02-27 171853.png" width="400"/></p><h3>IPv6</h3>
 <p></p>
 <p></p>
 <p>任務一 <a href="https://mdecd2025.github.io/hw-41223235/content/Brython.html?src=https://gist.githubusercontent.com/41223235/38df1b595d864c981b4e11c0486e1495/raw/5bee0b5b8c32f182891f81ac8671db1eab290936/gistfile1.txt">執行結果</a></p>
