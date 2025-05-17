@@ -470,7 +470,16 @@ for student in all_stud:
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/LWud8ylR6Aw" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam1 - 41223235" width="400"></iframe></p><h2>Exam2</h2>
 <p>Exam2 (10%): 利用 CAD 零組件建立模擬場景</p>
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 學員學號</p>
-<h2>Exam3</h2>
+<hr/>
+<p>1.<span>依照個人學號的最後兩碼作為依據，我的連桿主動桿訂為1.35而在solvespace上改為135，浮桿為195，搖桿為215，基座距離為165。(主動桿的起始旋轉角度設為35度)</span></p>
+<p><span>2.依照線架構約束組裝完成後存檔，並輸出存檔一個.stl檔</span></p>
+<p><span>3.將stl使用"split_stl_to_obj_scale2_w_mtl.py"進行轉obj檔，在stl_file這個地方後面要更改，改為自己取的名字.stl<img caption="false" height="152" src="/images/螢幕擷取畫面 2025-05-17 155715.png" width="250"/></span></p>
+<p>4.進入webot後，先加入Robot群組</p>
+<p>5.在Robot群組下的children加入兩個Solid作為base1 base2，再加入兩個Hingejoint一個做為joint1一個為joint4</p>
+<p>6.webots的操作步驟皆路至於影片當中。與Exam1的操作相差不多，只是box變成由自己於其他CAD軟體中繪製的物件，再來用cadshape匯入obj檔案。</p>
+<p>7.著重提一下<span>jointparameters中的anchor數值的設置。joint1為0,0,0、joint2為1.0458,0.9753,0、joint3為1.8008,2.9884,0。這個數值可由solveSpace中進行確定，即joint的位置距離x,y,z軸的距離</span></p>
+<hr/>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/mba15WGAQ6k" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 41223235 - solvespace零件繪圖" width="400"></iframe> <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/dxfw2wPKmSg" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 41223235 - webot 模擬" width="400"></iframe></p><h2>Exam3</h2>
 <p>Exam3 (20%): Webots 機電模擬場景的協同設計</p>
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3 - 學員學號</p>
 <h1>Final</h1>

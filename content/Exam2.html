@@ -145,8 +145,18 @@ img.add_border {
     <div id="tipue_search_content">Exam1 << <a href='Exam1.html'>Previous</a> <a href='Exam3.html'>Next</a> >> Exam3<br /><h1>Exam2</h1>
 <p>Exam2 (10%): 利用 CAD 零組件建立模擬場景</p>
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 學員學號</p>
-<p></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/mba15WGAQ6k" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 41223235 - solvespace零件繪圖" width="400"></iframe> <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/dxfw2wPKmSg" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 41223235 - webot 模擬" width="400"></iframe></p><br />Exam1 << <a href='Exam1.html'>Previous</a> <a href='Exam3.html'>Next</a> >> Exam3</div>
+<hr/>
+<p>1.<span>依照個人學號的最後兩碼作為依據，我的連桿主動桿訂為1.35而在solvespace上改為135，浮桿為195，搖桿為215，基座距離為165。(主動桿的起始旋轉角度設為35度)</span></p>
+<p><span>2.依照線架構約束組裝完成後存檔，並輸出存檔一個.stl檔</span></p>
+<p><span>3.將stl使用"split_stl_to_obj_scale2_w_mtl.py"進行轉obj檔，在stl_file這個地方後面要更改，改為自己取的名字.stl<img caption="false" height="152" src="./../images/螢幕擷取畫面 2025-05-17 155715.png" width="250"/></span></p>
+<p>4.進入webot後，先加入Robot群組</p>
+<p>5.在Robot群組下的children加入兩個Solid作為base1<span>、</span>base2，再加入兩個Hingejoint作為joint1<span>、</span>joint4</p>
+<p>6.webots的操作步驟皆路至於影片當中。這與Exam1的操作相差不多，只是box變成由自己於其他CAD軟體中繪製的物件，再來用cadshape匯入obj檔案。</p>
+<p>7.這裡<span>jointparameters中的anchor數值的xyz設置。joint1為0,0,0   joint2為1.1059,0.7743,0   joint3為2.724,1.8626,0   最後joint4黏在x1.65 。</span></p>
+<p><span>這個數值可由solveSpace中進行確定，即joint的位置距離x,y,z軸的距離 solveSpace的長度換到webots裡要乘0.01才是我們要數值。</span></p>
+<hr/>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/mba15WGAQ6k" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 41223235 - solvespace零件繪圖" width="400"></iframe> <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/dxfw2wPKmSg" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 41223235 - webot 模擬" width="400"></iframe></p>
+<p></p><br />Exam1 << <a href='Exam1.html'>Previous</a> <a href='Exam3.html'>Next</a> >> Exam3</div>
         
     <!-- footer -->
       <div class="container">
