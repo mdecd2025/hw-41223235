@@ -467,7 +467,22 @@ for student in all_stud:
 <h2>Exam1</h2>
 <p>Exam1 (10%): 建立 Webots 基本物件模擬場景</p>
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam1 - 學員學號</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/LWud8ylR6Aw" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam1 - 41223235" width="400"></iframe></p><h2>Exam2</h2>
+<hr/>
+<p>1.首先建立Robot群組下的children加入一個Solid改名為base，再加入兩個Hingejoint<span>改名為</span>joint1<span>、</span>joint4<span>。</span></p>
+<p><span>2.進入joint1的endpoint右鍵新增solid，然後調整數值，</span><span>rotation的部分是需要根據學號後兩碼來進行調整，本人最後兩碼35，轉成rad就是0.610865rad。如下圖。</span></p>
+<p><span><img alt="" height="105" src="/images/螢幕擷取畫面 2025-05-17 203821.png" width="200"/></span></p>
+<p><span>2.children新增pose與hinge joint，將hinge joint改名為joint2，</span>link1數值如下Pose&gt;shape&gt;box 。</p>
+<p><img caption="false" height="250" src="/images/螢幕擷取畫面 2025-05-17 204611.png" width="250"/></p>
+<p>3.join2與join1步驟一樣<span>，</span><span>children新增solid然後建立pose和hinge joint，然後rotation的部分是32.48度</span></p>
+<p><span>轉換rad就是0.566883rad。</span></p>
+<p><img alt="" height="498" src="/images/螢幕擷取畫面 2025-05-17 205043.png" width="300"/></p>
+<p>4. join3如圖下<span>。</span><span>然後rotation的部分是128.03度</span><span>轉換rad就是2.23455rad。</span></p>
+<p><img alt="" height="352" src="/images/螢幕擷取畫面 2025-05-17 205559.png" width="300"/></p>
+<p><span>5. 接下來Hjointparameters的部分和boundingObject的部分數值過程在影片中呈現。</span></p>
+<hr/>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/LWud8ylR6Aw" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam1 - 41223235" width="400"></iframe></p>
+<hr/>
+<p>心得:<span>與HW1雷同，也是利用HW1做動程式來運轉，只是長度和起始角度有所限制，這邊就要角度換算rad要去查一下看過角度方向有沒有對，多用幾次就會了。</span></p><h2>Exam2</h2>
 <p>Exam2 (10%): 利用 CAD 零組件建立模擬場景</p>
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 學員學號</p>
 <hr/>
@@ -483,7 +498,7 @@ for student in all_stud:
 <hr/>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/mba15WGAQ6k" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 41223235 - solvespace零件繪圖" width="400"></iframe> <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/dxfw2wPKmSg" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 41223235 - webot 模擬" width="400"></iframe></p>
 <hr/>
-<p><span>心得:與HW2雷同，也是利用HW2做動程式來運轉，只是桿長與起始角度有所限制，這次重用了好幾次webots設定過程不算困難，先前做webots模擬成功運轉時，才發現我桿子長度不夠長卡住了，無法完整做動軌跡，還有桿子link2放置位子不對，所以重用好幾次，很熟悉操作所以影片很快就做完，做錯的影片就不放上來了。</span></p><h2>Exam3</h2>
+<p><span>心得:與HW2雷同，也是利用HW2做動程式來運轉，只是桿長與起始角度有所限制，這次重用了好幾次webots設定過程不算困難，先前做webots模擬成功運轉時，才發現我桿子長度不夠長卡住了，無法完整做動軌跡，還有桿子link2放置位子不對，所以就先在solvespace重新組裝確認運轉會不會卡住還有位子，很熟悉操作所以影片很快就做完，做錯的影片就不放上來了。</span></p><h2>Exam3</h2>
 <p>Exam3 (20%): Webots 機電模擬場景的協同設計</p>
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3 - 學員學號</p>
 <h1>Final</h1>
