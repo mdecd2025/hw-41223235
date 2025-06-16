@@ -514,7 +514,11 @@ for student in all_stud:
 <hr/>
 <p><span>以下為exam3-2 製作過程:</span></p>
 <p><span>首先先下載老師的七段顯示器進行修改,利用GPT了解程式碼功能,可在number = 235 更改數值,後面過程和exam3-1一樣瀏覽器檢視</span></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/81_A3JIT3Fg" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3-2 - 41223235" width="400"></iframe></p><h1>Final</h1>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/81_A3JIT3Fg" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3-2 - 41223235" width="400"></iframe></p>
+<hr/>
+<p><span>以下為exam3-3 製作過程:</span></p>
+<p><span>這裡也是一樣用上面的方式開啟程式,利用老師給的.wbt來模擬,並到瀏覽器檢視</span></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="225" referrerpolicy="strict-origin-when-cross-origin" src="//www.youtube.com/embed/QOASi4UFuFk" title="國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3-3 - 41223235" width="400"></iframe></p><h1>Final</h1>
 <p><span>期末協同專案執行過程影片、簡報與 PDf 報告檔案 (六人一組) (30%)</span></p>
 <p><span>題目: <span style="background-color: #ccffcc;">Webots 動態投籃模擬系統的協同設計</span></span></p>
 <p><span>說明: </span></p>
@@ -522,7 +526,37 @@ for student in all_stud:
 <p style="padding-left: 30px;"><span>操作者可利用鍵盤特定按鍵控制投籃輪車的移動並發射投籃, 每投出一球後系統透過記分板進行計分, 並由送球機構進行補球或移動輪車取球, 遊戲可進行至全部數量籃球投完為止.</span></p>
 <p>請將期末協同專案執行過程、內容與心得, 製作成影片，配合字幕上傳至 Youtube 後嵌入各階段的期末報告頁面中.</p>
 <p>影片標題: <span style="background-color: #ffff00;">國立虎尾科技大學 - 機械設計工程系 - cd2025 期末報告 - 學員學號 - 各階段影片主題<br/></span></p>
-<h1>Brython</h1>
+<p data-end="122" data-start="40">本期末專題要結合人工智慧、團隊協作及模擬技術，開發一款能自動投籃的機器裝置。過程中運用繪圖軟體設計四連桿零件組合整體結構，並透過 Webots 平台進行模擬。</p>
+<p data-end="145" data-start="124">在專題前要先學習與實作以下核心技術與模組才能夠做出投籃機：</p>
+<ol data-end="248" data-start="146">
+<li data-end="167" data-start="146">
+<p data-end="167" data-start="149">四連桿機構之設計與運動模擬分析。</p>
+</li>
+<li data-end="197" data-start="168">
+<p data-end="197" data-start="171">投籃機主體零件的繪製、組裝與基本投籃動作的模擬。</p>
+</li>
+<li data-end="228" data-start="198">
+<p data-end="228" data-start="201">七段顯示器的設計與控制，並實現學號的動態顯示模擬。</p>
+</li>
+<li data-end="248" data-start="229">
+<p data-end="248" data-start="232">搭載式底座車輛的建模與移動模擬。</p>
+</li>
+</ol>
+<p><img caption="false" height="214" src="/images/螢幕擷取畫面 2025-06-17 032729.png" width="400"/></p>
+<p> <img caption="false" height="243" src="/images/螢幕擷取畫面 2025-06-17 033435.png" width="150"/>   <img alt="" height="244" src="/images/螢幕擷取畫面 2025-06-17 033619.png" width="200"/></p>
+<p><span style="background-color: #ffcc99;"><code data-end="151" data-start="127">create_static_sphere()</code></span> 函式，於指定位置產生一顆靜止球，等待擊出。   <span style="background-color: #ffff99;">靜態球生成（按下 A 鍵）</span></p>
+<p><span style="background-color: #ffcc99;"><code data-end="229" data-start="204">activate_dynamic_ball()</code></span> 將靜止球轉為具有物理屬性的動態球，啟動模擬物理運動。  <span style="background-color: #ffff99;">球體動態化（按下 M 鍵）</span></p>
+<p><span style="background-color: #ffcc99;"><code data-end="310" data-start="283">create_trajectory_point()</code> </span>建立拋物線軌跡點，以透明橘色球標示投射路徑。  控制最多保留五個軌跡點（FIFO 機制），避免畫面過於擁擠。當球接近地面 (<code data-end="397" data-start="387">z &lt; 0.13</code>) 自動視為落地，並清除所有軌跡點。  <span style="background-color: #ffff99;">軌跡點追蹤顯示</span></p>
+<p><span style="background-color: #ffcc99;"><code data-end="464" data-start="439">youbot_local_to_world()</code></span> 將投籃機相對位置轉換為世界座標，使球出現於正確位置。  <span style="background-color: #ffff99;"><strong data-end="430" data-start="420">世界座標轉換</strong></span></p>
+<p><span style="background-color: #ffcc99;"><code data-end="539" data-start="517">create_static_ball()</code></span> 產生不含物理屬性的靜態球。</p>
+<p><span style="background-color: #ffcc99;"><code data-end="584" data-start="561">create_dynamic_ball()</code></span> 則附加質量與密度，進行真實模擬。球體外觀與物理設定</p>
+<p><span>以上是檔案位置</span>:<a href="/downloads/final project 3.7z">/downloads/final project 3.7z</a></p>
+<p>完整程式:</p>
+<p><span>心得:</span><span>這學期下半段我盡量把能做到的部分都完成，老師教的內容感覺很有深度。我會主動向組裡比較厲害的同學請教，努力跟上進度。雖然表面上看起來進展不大，我已經在慢慢理解學習四連桿機構、投籃 機主體、七段顯示器與底座車輛模組了，整個課程內容都圍繞著運用 Webots 模擬投籃機來進行學習與實作，讓我學到了很多知識，但還沒有完全全面掌握，還在持續努力中。</span></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p><h1>Brython</h1>
 <p><button id="add1to100">1 add to 100</button></p>
 <!-- 導入 brython 程式庫 -->
 <p>
